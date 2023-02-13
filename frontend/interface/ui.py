@@ -3,34 +3,23 @@ from tkinter.ttk import *
 from tkinter import *
 from tkinter import StringVar
 from frontend.function.function_ui import *
-from pipe.pipe import *
 
 # function interaction ui
-def loop():
-    print("loop")
-def get_date_input(entry_cr):
-    date = entry_cr.get()
-    return date
-def get_file_input(entry_cr):
-    file = entry_cr.get()
-    return file
-def manual_function(entry1, entry2):
-    manual_selenium_download(get_date_input(entry1), get_file_input(entry2))
 
-def click_run_root_temp():
+def click_run_root_temp(): # env static val processing for auto loop
     global state_in_root_temp
     global signal_loop
     state_in_root_temp = 'run'
     signal_loop = 1
     messagebox.showinfo(title= "Message", message="Start auto")
 
-def click_exit_root_temp():
+def click_exit_root_temp(): # exit button fucnton in auto frame
     global state_in_root_temp
     global signal_loop
     state_in_root_temp = 'end'
     signal_loop = 0
     
-def start_loop():
+def start_loop(): # loop function schedule
     global state_in_root_temp 
     global signal_loop
     if state_in_root_temp == "run":
@@ -38,7 +27,7 @@ def start_loop():
     if signal_loop == 1:
         root.after(time_schedule,sequence(partial(start_loop), loop))
 
-def clicked_function_app_schedule():
+def clicked_function_app_schedule(): # init auto frame by click button
     global state_in_root_temp
     global signal_loop
     signal_loop = 1

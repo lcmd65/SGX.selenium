@@ -1,9 +1,24 @@
 import threading
 from tkinter import messagebox
-from backend.selenium_fc import selenium_download
+from pipe.pipe import * # BE function
 
 signal_loop = 1
 state_in_root_temp = 'end'
+
+# function interaction ui
+def loop():
+    print("loop")
+    
+def get_date_input(entry_cr):
+    date = entry_cr.get()
+    return date
+
+def get_file_input(entry_cr):
+    file = entry_cr.get()
+    return file
+
+def manual_function(entry1, entry2):
+    manual_selenium_download(get_date_input(entry1), get_file_input(entry2))
 
 def state_check_thread():
     t1 = threading.Thread(target=state_check(), )
