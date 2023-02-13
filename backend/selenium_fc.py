@@ -1,9 +1,10 @@
 from selenium import webdriver
 from backend.string_define import *
+from backend.logging_fc import * 
 from apscheduler.schedulers.blocking import BlockingScheduler
 import threading
 import time
-from backend.logging_fc import * 
+
 
 def selenium_download(): # function dload 4 file
     browser = webdriver.Chrome()
@@ -27,7 +28,7 @@ def selenium_download(): # function dload 4 file
         except:
             logging_fc("fail")
 
-def manual_selenium_download(date_input, file_name_temp): # manual dload file with input fime name and date
+def manual_selenium_download(date_input, file_name_temp): # function dload with file name & date input
     browser = webdriver.Chrome()
     browser.get(web_linked)
     time.sleep(10)
@@ -42,18 +43,18 @@ def manual_selenium_download(date_input, file_name_temp): # manual dload file wi
         logging_fc(file_name_temp)
     except:
         logging_fc("fail")
-        
 
-def schedule_job(): # this fc only use in this script
+def schedule_job(): # this schedule only use in this script
     selenium_download()
     sched = BlockingScheduler()
     sched.configure(max_instances = 2, name='Alternate name')
     @sched.scheduled_job('interval', seconds=time_schedule)
     def ui_schedule():
         selenium_download()
+        
     sched.start()
 
-def thread_schedule_job(): # this multiple threading only use in this script
+def thread_schedule_job(): # this multithread only use in this script
     t1 = threading.Thread(target = schedule_job())
     t1.start()
 

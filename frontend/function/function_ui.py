@@ -1,7 +1,8 @@
 import threading
 from tkinter import messagebox
-from backend.selenium_fc import *
+from backend.selenium_fc import selenium_download
 
+signal_loop = 1
 state_in_root_temp = 'end'
 
 def state_check_thread():

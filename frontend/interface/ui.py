@@ -1,16 +1,13 @@
 from functools import partial
 from tkinter.ttk import *
-from frontend.function.function_ui import *
 from tkinter import *
 from tkinter import StringVar
-from backend.string_define import * 
-from backend.date_fc import *
+from frontend.function.function_ui import *
+from pipe.pipe import *
 
-signal_loop = 1
-
+# function interaction ui
 def loop():
     print("loop")
-
 def get_date_input(entry_cr):
     date = entry_cr.get()
     return date
@@ -51,7 +48,7 @@ def clicked_function_app_schedule():
     start_loop()
     root_temp.mainloop()
 
-class Example(Frame):
+class Example(Frame): # main frame
     def __init__(self, parent):
         Frame.__init__(self, parent)
         self.parent = parent
@@ -91,7 +88,7 @@ class Example(Frame):
         Button_tab1_1.pack(side=RIGHT, padx=5, pady=30)
 
 
-class Checking_running(Frame):
+class Checking_running(Frame): # auto running frame
     def __init__(self, parent): 
         Frame.__init__(self, parent)
         self.parent = parent
@@ -115,8 +112,6 @@ class Checking_running(Frame):
 if __name__ == "__main__" :
     root = Tk()
     root.geometry('600x400+200+200') 
-    # Turn off the window shadow
-    # Set the root window background color to a transparent color
     app= Example(root)
     root.mainloop()
     

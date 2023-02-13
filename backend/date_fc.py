@@ -6,6 +6,7 @@ def numbers_to_strings(argument):
         1: "one",
         2: "two",
     }
+    return switcher.get(argument, "nothing")
 
 def tranfer_date_to_string(datetime_cr):
     switcher = {
