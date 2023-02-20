@@ -41,4 +41,6 @@ def sequence(*functions):
     return func
 
 def processing_fc():
+    global list_logging
     selenium_download() ## no use schedule in this ui function
+    daily_check_all_logging_fc() 
