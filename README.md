@@ -1,12 +1,12 @@
-
-# Requirement
+# Documentation
+### Requirement
 * python 3.11
 * tkinter
 * selenium
 * scheduler
 
-# Config
+### Config
 run: python3 frontend/interface/ui.py
 
-# Inside
+### Inside
 source scrap: https://www.sgx.com/
